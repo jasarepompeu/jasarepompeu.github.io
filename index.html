@@ -1,150 +1,325 @@
+Cap element seleccionat
+
+Salta al contingut
+Utilitza Correu de INS Pompeu Fabra (Martorell) amb lectors de pantalla
+
+1 de 552
+(sense assumpte)
+Safata d'entrada
+
+Jeffrey Asare Amowie <nelhatmi@iespompeufabra.cat>
+13:13 (fa 0 minuts)
+per a mi
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Web de Jeffrey</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
-  <style>
-    /* 1. Submenús en mode fosc */
-    body[data-bs-theme="dark"] .dropdown-menu {
-      background-color: #2c2c2c !important;
-      border-color: #444;
-    }
-    body[data-bs-theme="dark"] .dropdown-item {
-      color: #f8f9fa !important;
-    }
-    body[data-bs-theme="dark"] .dropdown-item:hover,
-    body[data-bs-theme="dark"] .dropdown-item:focus {
-      background-color: #3c3c3c !important;
-      color: #ffffff !important;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudi de la poma ecològica i convencional</title>
 
-    /* 2. Botó mode fosc/clar només icona */
-    #themeToggle {
-      border: none;
-      background: transparent;
-      font-size: 1.3rem;
-      color: inherit;
-    }
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 
-    /* 3. Hamburguesa blanca en mode fosc */
-    .navbar-toggler {
-      border: none;
-    }
-    .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,0,0,0.7%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
-    body[data-bs-theme="dark"] .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.9%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    }
+<style>
+  :root {
+    --verd: #2e7d32;
+    --verd-fosc: #1b5e20;
+    --verd-clar: #e8f5e9;
+    --groc: #fff8e1;
+    --taronja: #ef6c00;
+    --blau: #1565c0;
+    --blau-clar: #e3f2fd;
+    --vermell: #c62828;
+    --vermell-clar: #ffebee;
+    --gris: #f5f5f5;
+    --text: #1a1a1a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    max-width: 1000px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    line-height: 1.65;
+    color: var(--text);
+    background: #fafafa;
+  }
+  h1 { color: var(--verd-fosc); border-bottom: 3px solid var(--verd); padding-bottom: .3rem; font-size: 1.4rem; }
+  h2 { color: var(--verd); margin-top: 1.8rem; font-size: 1.15rem; border-left: 4px solid var(--verd); padding-left: .6rem; }
+  h3 { color: var(--verd-fosc); font-size: 1.02rem; margin-top: 1.2rem; }
 
-    /* 4. Logo circular i adaptatiu */
-    .logo {
-      width: 40px;
-      height: 40px;
-      object-fit: cover;
-    }
-    @media (max-width: 576px) {
-      .logo {
-        width: 30px;
-        height: 30px;
-      }
-    }
-    @media (min-width: 992px) {
-      .logo {
-        width: 50px;
-        height: 50px;
-      }
-    }
-  </style>
+  .box {
+    background: #fff;
+    border-left: 5px solid var(--verd);
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  .box.nota { background: var(--groc); border-left-color: var(--taronja); font-size: .93rem; }
+  .box.result { background: var(--verd-clar); border-left-color: var(--verd-fosc); font-weight: 600; }
+  .box.avís { background: var(--vermell-clar); border-left-color: var(--vermell); }
+  .box.info { background: var(--blau-clar); border-left-color: var(--blau); }
+
+  /* Taula resum */
+  .taula-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    background: #fff;
+    margin: 1rem 0;
+  }
+  table.resum {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 520px;
+    font-size: .92rem;
+  }
+  table.resum th,
+  table.resum td {
+    border: 1px solid #c8e6c9;
+    padding: .5rem .6rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+  table.resum thead th {
+    background: var(--verd);
+    color: #fff;
+    font-size: .9rem;
+  }
+  table.resum tbody tr:nth-child(even) { background: var(--gris); }
+  table.resum tbody tr:hover { background: var(--verd-clar); }
+
+  /* Taula comparació bilateral vs unilateral */
+  table.comparacio {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 540px;
+    font-size: .92rem;
+  }
+  table.comparacio th,
+  table.comparacio td {
+    border: 1px solid #c8e6c9;
+    padding: .5rem .6rem;
+    text-align: center;
+  }
+  table.comparacio thead th {
+    background: #37474f;
+    color: #fff;
+    font-size: .9rem;
+  }
+  table.comparacio tbody tr.bil td:first-child { border-left: 4px solid var(--blau); }
+  table.comparacio tbody tr.uni td:first-child { border-left: 4px solid var(--vermell); }
+  table.comparacio tbody tr.bil { background: #e3f2fd; }
+  table.comparacio tbody tr.uni { background: #ffebee; }
+  .ok { color: #2e7d32; font-weight: 700; }
+  .no { color: #c62828; font-weight: 700; }
+
+  /* Passos càlcul */
+  .calc {
+    background: #fff;
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    padding: .8rem 1rem;
+    margin: .8rem 0;
+    overflow-x: auto;
+  }
+  .calc .et {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: .3rem;
+  }
+
+  /* Dues columnes conclusions */
+  .dues-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  .dues-cols > div {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
+  .dues-cols .bil { border-top: 4px solid var(--blau); }
+  .dues-cols .uni { border-top: 4px solid var(--vermell); }
+  .dues-cols h4 { margin: 0 0 .5rem; font-size: 1rem; }
+  .dues-cols .bil h4 { color: var(--blau); }
+  .dues-cols .uni h4 { color: var(--vermell); }
+  @media (max-width: 640px) { .dues-cols { grid-template-columns: 1fr; } }
+
+  @media (max-width: 600px) {
+    body { font-size: 15px; padding: 0 .6rem; }
+    h1 { font-size: 1.15rem; }
+    table.resum, table.comparacio { font-size: .82rem; min-width: 460px; }
+    table.resum th, table.resum td,
+    table.comparacio th, table.comparacio td { padding: .35rem .35rem; }
+  }
+</style>
 </head>
-<body data-bs-theme="light">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light shadow sticky-top">
-    <div class="container-fluid">
-      <!-- 5. Logo i text -->
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="logo.png" alt="Logo" class="logo rounded-circle me-2">
-        <span class="fw-bold">Web de Jeffrey</span>
-      </a>
+<body>
 
-      <!-- Botó menú mòbil -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<h1>Estudi de la poma ecològica i convencional</h1>
 
-      <!-- Menú -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- Projecte 1 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="proj1Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-diagram-project me-1"></i> IA vs Google Acadèmic
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="proj1Dropdown">
-              <li><a class="dropdown-item" href="https://jasarepompeu.github.io/ia"><i class="fa-solid fa-code me-1"></i> Comparem fonts d'informació</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-database me-1"></i> Projecte 1.2</a></li>
-            </ul>
-          </li>
-          <!-- Projecte 2 -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="proj2Dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-folder-open me-1"></i> Projecte 2
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="proj2Dropdown">
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-chart-line me-1"></i> Projecte 2.1</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-cogs me-1"></i> Projecte 2.2</a></li>
-            </ul>
-          </li>
-        </ul>
-        <!-- Botó mode clar/fosc -->
-        <button id="themeToggle" class="ms-2"><i class="fa-solid fa-moon"></i></button>
-      </div>
-    </div>
-  </nav>
+<div class="box nota">
+  <strong>Context.</strong> Jo Jeffrey he trobat un article científic en <em>Google Acadèmic</em> que compara el contingut de
+  <strong>àcid cafeic i àcid clorogenic (mg/100 g)</strong> en pomes ecològiques vs. convencionals. L'article dóna
+  <strong>mitjana</strong>, <strong>desviació estàndard (SD)</strong> i <strong>mida de mostra (n)</strong>
+  per a cada grup. Pots veure les dades de l'article en la seguent captura de pantalla:
+  <ing src= "taula1.png">
+    <p>La taula anterior prové de l'article científic que citem en estil APA7 que es molt utilitzat en l0'educació i psicologia
+    perquè va ser creat pero la Associació Americana de Psicòlegs en la seva setena edició. </p>
+    <p>Średnicka-Tober D., Barański M., Kazimierczak R., Ponder A., Kopczyńska K. i Hallmann E.Received: 6 April 2020; 
+      Accepted: 22 April 2020; Published: 25 April 2020 Selected Antioxidants in Organic vs. Conventionally
+Grown Apple Fruits <a href="https://doi.org/10.3390/app10092997>DOI</a></p>
+</div>
 
-  <!-- Contingut -->
-  <main class="container py-5">
-    <h1 class="display-5 fw-bold mb-4">Benvinguts als Projectes</h1>
-    <p class="lead"> Soc Jeffrey de 4t Eso de l'<a href="https://agora.xtec.cat/ies-pompeu-fabra-martorell/" >Institut Pompeu Fabra</a> de 
-      la matèria de Digitalització</p>
-    <p class="lead"> Els temes que farem els tres trimestres són:
-      <ul>
-        <li><u>1r Trimestre</u> : L'objectiu és tenir un <b>espèrit crític i científic</b> en la recerca d'informació comparant l'informació 
-        de <a href="https://scholar.google.com/?hl=ca/"> Google Academic</a> amb un model de llenguatge gegant
-       <i>LLM (Large Language Model) /<i/i> què no es 
-         intel·ligencia artificial general perquè no existeix, perquè es intel·ligecia artificial estreta. Cada estudiant estudiarà una fruita o verdura diferent i compararem en el meu cas
-       el alvocat ecologic i convencional concertament si té més nutrients beneficiosos com: vitamines, minerals polifenols, caratenoides...etc.</li>
-        
-         <li><u>2r Trimestre</u>: L'objectiu és saber analitzar dades i treure conclusions pròpies. Cada estudiant analitzarà la contaminació de una ciutat propia
-         des de l'1 de gener fins al 31 de desembre de 2026, hora a hora i dia a dia. També analitzarem com influencia la metropologia a la 
-         contaminació amb dades cada mitja hora des de els anys 90. Per últim ho relacionarem amb les infeccios respiratòries registrades cada dia des del 1 de gener de 2012 dels centres d'atenció primària de la meva ciutat que será... </li>
-        
-         <li><u>3r Trimestre</u>: L'objectiu és ser creatiu utilitzant eines molt avancades de aprenentatge automátic com el ml5.js que permetrà que quan jo miro la càmara del meu ordinador detecti els sentiments de la meva cara del 
-         personatge de còmic que he triat.</li>
-      </ul>
-    <p class="lead">Aquesta és una plantilla web amb menú desplegable, icones Font Awesome, mode clar i fosc, i disseny responsiu per mòbil i ordinador utilitzant Bootstrap 5.3.8. Aquest és el punt de partida per editar tot i fer projectes amb el professor Francesc Pérez.</p>
-  </main>
+<!-- ============================================================ -->
+<h2>1. Dades extretes de l'article</h2>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Mode clar/fosc amb canvi d'icona
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle.querySelector('i');
+<div class="taula-wrap">
+  <table class="resum">
+    <thead>
+      <tr>
+        <th>Grup</th>
+        <th>\(n\)</th>
+        <th>Mitjana \(\bar{x}\)</th>
+        <th>SD \(s\)</th>
+        <th>Variància \(s^2\)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Ecològic (A)</td>
+        <td>12</td>
+        <td>9,80</td>
+        <td>1,20</td>
+        <td>1,44</td>
+      </tr>
+      <tr>
+        <td>Convencional (B)</td>
+        <td>12</td>
+        <td>8,90</td>
+        <td>1,10</td>
+        <td>1,21</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
-    themeToggle.addEventListener('click', () => {
-      if (document.body.getAttribute('data-bs-theme') === 'dark') {
-        document.body.setAttribute('data-bs-theme', 'light');
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-      } else {
-        document.body.setAttribute('data-bs-theme', 'dark');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-      }
-    });
-  </script>
+<!-- ============================================================ -->
+<h2>2. Càlcul del test t de Welch</h2>
+
+<div class="calc">
+  <div class="et">Estadístic t</div>
+  \[
+    t = \frac{9{,}80 - 8{,}90}{\sqrt{\dfrac{1{,}44}{12} + \dfrac{1{,}21}{12}}}
+      = \frac{0{,}90}{\sqrt{0{,}1200 + 0{,}1008}}
+      = \frac{0{,}90}{0{,}4700} \approx 1{,}915
+  \]
+</div>
+
+<div class="calc">
+  <div class="et">Graus de llibertat de Welch</div>
+  \[
+    df = \frac{(0{,}1200 + 0{,}1008)^2}{\dfrac{0{,}1200^2}{11} + \dfrac{0{,}1008^2}{11}}
+       = \frac{0{,}2208^2}{0{,}001309 + 0{,}000924}
+       \approx 21{,}8 \;\to\; 21
+  \]
+</div>
+
+<!-- ============================================================ -->
+<h2>3. Comparació amb la taula t (α = 0,05)</h2>
+
+<div class="taula-wrap">
+  <table class="comparacio">
+    <thead>
+      <tr>
+        <th>Tipus de contrast</th>
+        <th>Valor crític \(t_{crit}\)</th>
+        <th>Comparació</th>
+        <th>Decisió</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bil">
+        <td><strong>Bilateral</strong><br><span style="font-size:.8rem">(α/2 = 0,025, df = 21)</span></td>
+        <td>2,080</td>
+        <td>\(1{,}915 < 2{,}080\)</td>
+        <td class="no">❌ No rebutgem H₀</td>
+      </tr>
+      <tr class="uni">
+        <td><strong>Unilateral</strong><br><span style="font-size:.8rem">(α = 0,05, df = 21)</span></td>
+        <td>1,721</td>
+        <td>\(1{,}915 > 1{,}721\)</td>
+        <td class="ok">✅ Rebutgem H₀</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<h2>4. Conclusions</h2>
+
+<div class="dues-cols">
+  <div class="bil">
+    <h4>Conclusió bilateral</h4>
+    <p>
+      Amb un contrast <strong>bilateral</strong> (α = 0,05), \(t = 1{,}915\)
+      <strong>no supera</strong> el valor crític \(t_{0{,}025}(21) = 2{,}080\).
+    </p>
+    <p>
+      Per tant, <strong>no hi ha evidència suficient</strong> per afirmar que el contingut de licopè
+      difereixi entre tomàquets ecològics i convencionals. La diferència observada
+      (0,90 mg/100 g) podria ser deguda a l'atzar mostral.
+    </p>
+  </div>
+  <div class="uni">
+    <h4>Conclusió unilateral</h4>
+    <p>
+      Si <strong>abans de veure les dades</strong> haguéssim formulat la hipòtesi direccional
+      \(H_1: \mu_{eco} > \mu_{conv}\) (per exemple, perquè estudis previs suggereixen que l'estrès
+      de la planta afavoreix la síntesi de licopè), amb un contrast <strong>unilateral</strong> (α = 0,05),
+      \(t = 1{,}915\) <strong>sí supera</strong> el valor crític \(t_{0{,}05}(21) = 1{,}721\).
+    </p>
+    <p>
+      Conclouríem que el tomàquet ecològic té <strong>significativament més licopè</strong>
+      que el convencional.
+    </p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2>5. Lliçó didàctica</h2>
+
+<div class="box avís">
+  <strong>⚠️ El mateix conjunt de dades pot donar conclusions oposades segons el tipus de contrast!</strong>
+  <ul style="margin:.5rem 0 0">
+    <li><strong>Bilateral</strong> → més conservador, més difícil rebutjar H₀.</li>
+    <li><strong>Unilateral</strong> → més potent, però <strong>només vàlid si la direcció s'havia decidit abans de mirar les dades</strong>.</li>
+    <li>Triar unilateral <em>després</em> de veure que el bilateral no és significatiu és <strong>mala praxi</strong> (infla el risc d'error tipus I).</li>
+  </ul>
+</div>
+
+<div class="box result">
+  <strong>Resum en una línia:</strong> Amb les mateixes dades (\(t = 1{,}915\), df = 21):
+  bilateral → <strong>no significatiu</strong>; unilateral → <strong>significatiu</strong>.
+  La diferència és que el bilateral reparteix α entre les dues cues i exigeix un \(t\)
+  més gran per rebutjar H₀.
+</div>
+
 </body>
 </html>
